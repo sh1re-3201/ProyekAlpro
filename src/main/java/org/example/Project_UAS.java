@@ -4,10 +4,16 @@
  */
 package org.example;
 
+/*
+INGAT UNTUK SELALU PUSH SEBELUM KELUAR
+DAN
+PULL SAAT PERTAMA KALI MASUK
+ */
+
 import java.util.Scanner;
 /**
  *
- * @author Krisna Wiranata
+ * @author Krisna Wiranata, Anugrah Frumensius, Alberth Dody.
  */
 public class Project_UAS {
     static Scanner input = new Scanner(System.in);
@@ -32,7 +38,7 @@ static String nama,
               poli;
 
     public static void main(String[] args) {
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSUD ANUGRAH PAINGAN--==");
        menuUtama();
     }
@@ -40,7 +46,7 @@ static String nama,
     // subprogram untuk menu utama
     static void menuUtama(){
         do {
-            System.out.println("");
+            System.out.println(" ");
             System.out.println("MENU PENDAFTARAN RSUD ANUGRAH PAINGAN");
             System.out.println("SILAHKAN MEMILIH MENU YANG TERSEDIA DENGAN MEMASUKAN ANGKA SESUAI DENGAN MENU YANG INGIN ANDA PILIH : ");
             System.out.println("1. MENDAFTAR PERTAMA KALI SEBAGAI PASIEN BARU");
@@ -59,7 +65,7 @@ static String nama,
                     break;
                 case 3 :
                     do{
-                    System.out.println("");
+                    System.out.println();
                     System.out.println("PENJELASAN");
                     System.out.println("MENU NOMOR 1 ADALAH MENU UNTUK PASIEN YANG PERTAMA KALI MENDAFTAR DI RSUD ANUGRAH PAINGAN. JIKA ANDA BELUM PERNAH MENDAFTAR SEBELUMNYA MAKA PILIHLAH MENU NOMOR 1");
                     System.out.println("MENU NOMOR 2 ADALAH MENU UNTUK PASIEN YANG SUDAH PERNAH MENJADI PASIAN DI RSUD ANUGRAH PAINGAN SEBELUMNYA.");
@@ -124,7 +130,7 @@ static String nama,
     }
     // subprogram untuk prosedur identitas/biodata penanggung jawab
     static void biodataPenanggungJawab(){
-        System.out.println("");
+        System.out.println();
         System.out.println("SILAHKAN MASUKAN BIODATA PENANGGUNG JAWAB ");
         System.out.print("Nama Penanggung jawab : ");
         namaPenanggungJawab = input.nextLine();
@@ -151,7 +157,7 @@ static String nama,
                keluhan;
         
         do{
-            System.out.println("");
+            System.out.println();
             System.out.println("SILAHKAN PILIH POLI YANG ANDA TUJU");
             System.out.println("1. POLI ANAK");
             System.out.println("2. POLI UMUM");
@@ -159,7 +165,7 @@ static String nama,
             System.out.println("4. POLI BEDAH UMUM");
             System.out.print("PILIH : ");
             menu = input.nextInt();
-            System.out.println("");
+            System.out.println();
             
              switch (menu){
                  // menu tujuan poli anak
@@ -172,7 +178,7 @@ static String nama,
                      jadwal += input.nextLine();
                 
                 do{
-                    System.out.println("");
+                    System.out.println();
                     System.out.println("SILAHKAN PILIH DOKTER : ");
                     System.out.println("1. Alberth Dody, Sp.A");
                     System.out.println("2. Nurul Mahalini, Sp.A");
@@ -184,13 +190,13 @@ static String nama,
                     }
                 }while(dokterAnak < 1 || dokterAnak > 3);
                 
-                     System.out.println("");
+                     System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
                      do{
-                         System.out.println("");
+                         System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
                          System.out.println("JIKA (IYA) KETIK 1 DAN JIKA TIDAK KETIK 2");
                          System.out.print("PILIH : ");
@@ -202,7 +208,7 @@ static String nama,
                              
                              int menuBPJS;
                              do{
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
@@ -226,7 +232,7 @@ static String nama,
                          }else if (pilihanBPJS == 2) {
                              int menuBPJS;
                              do {
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
@@ -259,7 +265,7 @@ static String nama,
                      jadwal += input.nextLine();
                 
                 do{
-                    System.out.println("");
+                    System.out.println();
                     System.out.println("SILAHKAN PILIH DOKTER : ");
                     System.out.println("1. dr. Laurel Varhana");
                     System.out.println("2. dr. Agus Sapiderman");
@@ -273,13 +279,13 @@ static String nama,
                 }while(dokterUmum < 1 || dokterUmum > 4);
                 
                 
-                     System.out.println("");
+                     System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
                      do{
-                         System.out.println("");
+                         System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
                          System.out.println("JIKA (IYA) KETIK 1 DAN JIKA TIDAK KETIK 2");
                          System.out.print("PILIH : ");
@@ -291,7 +297,7 @@ static String nama,
                               
                              int menuBPJS;
                              do{
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
@@ -315,7 +321,7 @@ static String nama,
                          }else if (pilihanBPJS == 2) {
                              int menuBPJS;
                              do {
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
@@ -360,14 +366,14 @@ static String nama,
                 }while(dokterSyaraf < 1 || dokterSyaraf > 3);
                 
                 
-                     System.out.println("");
+                     System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
                      
                      do{
-                         System.out.println("");
+                         System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
                          System.out.println("JIKA (IYA) KETIK 1 DAN JIKA TIDAK KETIK 2");
                          System.out.print("PILIH : ");
@@ -379,7 +385,7 @@ static String nama,
                               
                              int menuBPJS;
                              do{
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
@@ -403,7 +409,7 @@ static String nama,
                          }else if (pilihanBPJS == 2) {
                              int menuBPJS;
                              do {
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
@@ -449,13 +455,13 @@ static String nama,
                     }
                 }while(dokterBedah < 1 || dokterBedah > 4);
                 
-                     System.out.println("");
+                     System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
                      do{
-                         System.out.println("");
+                         System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
                          System.out.println("JIKA (IYA) KETIK 1 DAN JIKA TIDAK KETIK 2");
                          System.out.print("PILIH : ");
@@ -467,7 +473,7 @@ static String nama,
                               
                              int menuBPJS;
                              do{
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
@@ -491,7 +497,7 @@ static String nama,
                          }else if (pilihanBPJS == 2) {
                              int menuBPJS;
                              do {
-                                 System.out.println("");
+                                 System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
