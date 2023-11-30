@@ -33,7 +33,7 @@ static String nama,
 
     public static void main(String[] args) {
         System.out.println("");
-        System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSUD ANUGERAH PAINGAN--==");
+        System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSUD ANUGRAH PAINGAN--==");
        menuUtama();
     }
     
