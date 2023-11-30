@@ -41,7 +41,7 @@ static String nama,
     static void menuUtama(){
         do {
             System.out.println("");
-            System.out.println("MENU PENDAFTARAN RSUD ANUGERAH PAINGAN");
+            System.out.println("MENU PENDAFTARAN RSUD ANUGRAH PAINGAN");
             System.out.println("SILAHKAN MEMILIH MENU YANG TERSEDIA DENGAN MEMASUKAN ANGKA SESUAI DENGAN MENU YANG INGIN ANDA PILIH : ");
             System.out.println("1. MENDAFTAR PERTAMA KALI SEBAGAI PASIEN BARU");
             System.out.println("2. MENDAFTAR SEBAGAI PASIEN YANG SUDAH PERNAH MENDAFTAR SEBELUMNYA");
@@ -61,8 +61,8 @@ static String nama,
                     do{
                     System.out.println("");
                     System.out.println("PENJELASAN");
-                    System.out.println("MENU NOMOR 1 ADALAH MENU UNTUK PASIEN YANG PERTAMA KALI MENDAFTAR DI RSUD ANUGERAH PAINGAN. JIKA ANDA BELUM PERNAH MENDAFTAR SEBELUMNYA MAKA PILIHLAH MENU NOMOR 1");
-                    System.out.println("MENU NOMOR 2 ADALAH MENU UNTUK PASIEN YANG SUDAH PERNAH MENJADI PASIAN DI RSUD ANUGERAH PAINGAN SEBELUMNYA.");
+                    System.out.println("MENU NOMOR 1 ADALAH MENU UNTUK PASIEN YANG PERTAMA KALI MENDAFTAR DI RSUD ANUGRAH PAINGAN. JIKA ANDA BELUM PERNAH MENDAFTAR SEBELUMNYA MAKA PILIHLAH MENU NOMOR 1");
+                    System.out.println("MENU NOMOR 2 ADALAH MENU UNTUK PASIEN YANG SUDAH PERNAH MENJADI PASIAN DI RSUD ANUGRAH PAINGAN SEBELUMNYA.");
                     System.out.println("JADI ANDA TIDAK PERLU MENGISI IDENTITAS ATAU BIODATA PASIEN LAGI. CUKUP MEMASUKAN NOMOR REKA PASIEN SAJA");
                     System.out.println("MENU NOMOR 4 ADALAH UNTUK KELUAR DARI PROGRAM");
                     System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -521,10 +521,10 @@ static String nama,
         }while(menu > 5 || menu < 1);
     }
     
-    // subprogram untuk pilihan menu utama nomor 2 yaitu pendaftaran untuk pasien yang sudah pernah berobat di RSUD ANUGERAH PAINGAN SEBELUMNYA
+    // subprogram untuk pilihan menu utama nomor 2 yaitu pendaftaran untuk pasien yang sudah pernah berobat di RSUD ANUGRAH PAINGAN SEBELUMNYA
     static void menu_2(){
         System.out.println("ANDA MEMILIH MENU 2");
-        System.out.println("JIKA ANDA SUDAH PERNAH MENJADI PASIEN DI RSUD ANUGERAH PAINGAN SEBELUMNYA");
+        System.out.println("JIKA ANDA SUDAH PERNAH MENJADI PASIEN DI RSUD ANUGRAH PAINGAN SEBELUMNYA");
         System.out.println("MAKA ANDA TIDAK PERLU MENGISI BIODATA PASIEN LAGI");
         System.out.print("TOLONG MASUKAN NOMOR REKA PASIEN : ");
         // MEMBUAT SCANNER ARRAY UNTUK MEMASUKAN NOMOR REKA
