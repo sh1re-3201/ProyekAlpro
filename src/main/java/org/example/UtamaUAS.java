@@ -7,7 +7,7 @@ SETIAP KALI MULAI MEMBUKA SEBELUM MENGUBAH FETCH AND PULL TERLEBIH DAHULU
 
 package org.example;
 
-public class Main {
+public class UtamaUAS {
     static short[] nomorRekaMedis = new short[50];
 
     public static void main(String[] args) {
