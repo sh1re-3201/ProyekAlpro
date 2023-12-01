@@ -18,7 +18,9 @@ import java.util.Scanner;
 public class Project_UAS {
     static Scanner input = new Scanner(System.in);
 
-  static int menuUtama,
+    static short[] nomorRekaMedis = new short[50];// Array untuk nomor reka medis berkapasitas 50 entries
+
+    static int menuUtama,
              umur,
              menuKembali;
   
@@ -538,5 +540,13 @@ static String nama,
         biodataPenanggungJawab();
         
         menuPoli();
+    }
+    static void isiArray(){// Untuk mengisi nilai 5 reka medis yang sudah ada dari index 0 s/d 4
+        nomorRekaMedis[0] = 12334;
+        nomorRekaMedis[1] = 12311;
+        nomorRekaMedis[2] = 15334;
+        nomorRekaMedis[3] = 12313;
+        nomorRekaMedis[4] = 26713;
+
     }
 }
