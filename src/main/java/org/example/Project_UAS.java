@@ -19,7 +19,7 @@ import java.util.Random;
 public class Project_UAS {
     static Scanner input = new Scanner(System.in);
 
-    static short[] nomorRekaMedis = new short[50];// Array untuk nomor reka medis dengan panjang 50
+    static int[] nomorRekaMedis = new int[50];// Array untuk nomor reka medis dengan panjang 50
     static String[] namaPasien = new String[50];// Array untuk nama pasien lama dengan panjang 50
     static String[] jenisKelaminPasien = new String[50];// Array untuk jenis kelamin dengan panjang 50
     static String[] tempatLahirPasien = new String[50];// Array untuk tempat lahir pasien dengan panjang 50
@@ -27,22 +27,18 @@ public class Project_UAS {
     static String[] agamaPasien = new String[50];
     static String[] pekerjaanPasien = new String[50];
     static String[] tanggalLahirPasien = new String[50];
+    static String[] nomorTelponPasien = new String[50];
+
+    static int countIndex = 5;
+    static int menuUtama;
 
     static int pilIndexArray;// PENTING BUAT PEMILIHAN ARRAY SEMUA KENA MANTAB JOSSSSSSSS
-    static int menuUtama,
-             umur,
-             menuKembali;
+    static int noRekPasRandom=0;
+    static int menuKembali;
 
-    static double nomorTelp,
-                noTelpPenanggungJawab;
+    static String noTelpPenanggungJawab;
     // BIODATA PASIEN AKAN DI GANTI MENJADI VARIABEL ARRAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    static String nama,
-              jenisKelamin,
-              tempatLahir,
-              tanggalLahir,
-              alamat,
-              agama,
-              pekerjaan,
+    static String
               namaPenanggungJawab,
               alamatPenanggungJawab,
               hubungan,
@@ -53,8 +49,25 @@ public class Project_UAS {
         System.out.println(" ");
         System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSU ETERNA PAINGAN--==");
         System.out.println(nomorRekaMedis.length);
-        System.out.println(nomorRekaMedis[2]);
-//        menuUtama();
+        System.out.println(namaPasien[4]);
+        menuUtama();
+    }
+    // Method untuk membuat nomor reka medis baru
+    static void nomorRekaMedisRandom() {
+        Random acak = new Random();
+
+        for (int j = 1; j < 10; j++) {
+            do {
+                for (int i = 0; i < 5; i++) {
+                    if (noRekPasRandom <= 10000){
+                        noRekPasRandom = acak.nextInt(32767);
+                    }
+                }
+            }while (noRekPasRandom <= 10000);
+        }
+        nomorRekaMedis[countIndex] += noRekPasRandom;
+        System.out.println(noRekPasRandom);
+        countIndex++;
     }
 
     // subprogram untuk menu utama
@@ -111,6 +124,7 @@ public class Project_UAS {
                     break;
             }
         }while(menuUtama != 4);
+
 }
     // Subprogram untuk pilihan menu utama nomor 1 yaitu pendaftaran pasien baru
     static void menu_1(){
@@ -122,26 +136,44 @@ public class Project_UAS {
     }
 
    // subprogram untuk prosedur identitas atau biodata pasien
-    static void identitas(){
-         System.out.print("Nama Pasien           : ");
-        nama = input.nextLine();
-        nama += input.nextLine();
-        System.out.print("Umur                  : ");
-        umur = input.nextInt();
-        System.out.print("Tempat lahir          : ");
-        tempatLahir = input.nextLine();
-        tempatLahir += input.nextLine();
-        System.out.print("Tanggal lahir         : ");
-        tanggalLahir = input.nextLine();
-        System.out.print("Alamat lengkap        : ");
-        alamat = input.nextLine();
-        System.out.print("Agama                 : ");
-        agama = input.nextLine();
-        System.out.print("Pekerjaan             : ");
-        pekerjaan = input.nextLine();
-        System.out.print("No. Telepon           : ");
-        nomorTelp = input.nextDouble();
-    }
+   static void identitas() {
+       int currentIndex = 5; // Starting index
+
+       System.out.print("Nama Pasien           : ");
+       namaPasien[currentIndex] = input.nextLine();
+       namaPasien[currentIndex] += input.nextLine();
+
+       System.out.print("Tempat lahir          : ");
+       tempatLahirPasien[currentIndex] = input.nextLine();
+       System.out.print("Tanggal lahir         : ");
+       tanggalLahirPasien[currentIndex] = input.nextLine();
+       System.out.print("Alamat lengkap        : ");
+       alamatPasien[currentIndex] = input.nextLine();
+       System.out.print("Agama                 : ");
+       agamaPasien[currentIndex] = input.nextLine();
+       System.out.print("Pekerjaan             : ");
+       pekerjaanPasien[currentIndex] = input.nextLine();
+
+
+
+       // Prompt user for No. Telepon input and remove leading zeros
+       boolean validInput = false;
+       while (!validInput) {
+           System.out.print("No. Telepon           : ");
+           String nomorTelpInput = input.next();
+           // Check if the input contains letters
+           if (nomorTelpInput.matches(".*[a-zA-Z]+.*")) {
+               System.out.println("Nomor Telepon tidak boleh mengandung huruf. Silakan coba lagi.");
+           } else {
+               nomorTelponPasien[currentIndex] = nomorTelpInput.replaceFirst("^0+", ""); // Remove leading zeros
+               validInput = true;
+           }
+       }
+
+       // Increment the index for the next iteration
+       currentIndex++;
+   }
+
     // subprogram untuk prosedur identitas/biodata penanggung jawab
     static void biodataPenanggungJawab(){
         System.out.println();
@@ -153,8 +185,18 @@ public class Project_UAS {
         hubungan = input.nextLine();
         System.out.print("Alamat                : ");
         alamatPenanggungJawab = input.nextLine();
-        System.out.print("No. Telp              : ");
-        noTelpPenanggungJawab = input.nextDouble();
+        // mengecek jika ada huruf di nomor telepon
+        boolean validInput = false;
+        while (!validInput){
+            System.out.print("No. Telp              : ");
+            String nomorTelpPenanggungjawabInput = input.next();
+            if (nomorTelpPenanggungjawabInput.matches(".*[a-zA-Z]+.*")){
+                System.out.println("Nomor Telepon tidak boleh mengandung huruf. Silakan coba lagi.");
+            } else {
+                noTelpPenanggungJawab = nomorTelpPenanggungjawabInput.replaceFirst("^0+", "");
+                validInput = true;
+            }
+        }
     }
     // subprogram untuk menu tujuan poli, pemilihan dokter, pemilihan jadwal, mengisi keluhan dan menu BPJS
     static void menuPoli(){
@@ -244,7 +286,10 @@ public class Project_UAS {
                              do{
                                  System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 System.out.println(noRekPasRandom);
+
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -268,7 +313,10 @@ public class Project_UAS {
                              do {
                                  System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
                                  System.out.println("2. KELUAR ");
@@ -349,7 +397,7 @@ public class Project_UAS {
                              do{
                                  System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -373,7 +421,10 @@ public class Project_UAS {
                              do {
                                  System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
                                  System.out.println("2. KELUAR ");
@@ -456,7 +507,10 @@ public class Project_UAS {
                              do{
                                  System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -480,7 +534,10 @@ public class Project_UAS {
                              do {
                                  System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
                                  System.out.println("2. KELUAR ");
@@ -562,7 +619,10 @@ public class Project_UAS {
                              do{
                                  System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -586,7 +646,10 @@ public class Project_UAS {
                              do {
                                  System.out.println();
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
-                                 System.out.println("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+                                 System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                 nomorRekaMedisRandom();
+
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
                                  System.out.println("2. KELUAR ");
@@ -612,14 +675,48 @@ public class Project_UAS {
                     break;
              }
         }while(menu > 5 || menu < 1);
+
     }
 
     // subprogram untuk pilihan menu utama nomor 2 yaitu pendaftaran untuk pasien yang sudah pernah berobat di RSU ETERNA PAINGAN SEBELUMNYA
     static void menu_2(){
+        Scanner aria = new Scanner(System.in);
+        boolean nomorRekaTemu = false;
+        int i = 0;
+
         System.out.println("ANDA MEMILIH MENU 2");
         System.out.println("JIKA ANDA SUDAH PERNAH MENJADI PASIEN DI RSU ETERNA PAINGAN SEBELUMNYA");
         System.out.println("MAKA ANDA TIDAK PERLU MENGISI BIODATA PASIEN LAGI");
-        System.out.print("TOLONG MASUKAN NOMOR REKA PASIEN : ");
+        System.out.print("");
+
+        // Mengecek kalau benar atau salah nomor reka medis yang diisi
+        while (true) {
+            System.out.print("TOLONG MASUKAN NOMOR REKA PASIEN : ");
+            short rekaMed = aria.nextShort();
+
+            // Reset the nomorRekaTemu flag and index for each iteration
+            nomorRekaTemu = false;
+            pilIndexArray = -1;
+
+            // Iterate through the array to check for a match
+            for (int j = 0; j < nomorRekaMedis.length; j++) {
+                if (rekaMed == nomorRekaMedis[j]) {
+                    nomorRekaTemu = true;
+                    pilIndexArray = j;
+                    break; // Exit the loop once a match is nomorRekaTemu
+                }
+            }
+
+            if (nomorRekaTemu) {
+                System.out.println("SELAMAT DATANG " + namaPasien[pilIndexArray] + "!");
+                break;
+            } else {
+                System.out.println("Nomor Reka Medis tidak ditemukan.");
+            }
+
+
+
+        }
         // MEMBUAT SCANNER ARRAY UNTUK MEMASUKAN NOMOR REKA
         
         biodataPenanggungJawab(); // memanggil biodata
