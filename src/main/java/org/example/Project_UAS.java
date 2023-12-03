@@ -21,24 +21,25 @@ public class Project_UAS {
     static short[] nomorRekaMedis = new short[50];// Array untuk nomor reka medis berkapasitas 50 entries
 
     static int menuUtama,
-             umur,
-             menuKembali;
+               umur,
+               menuKembali;
   
-  static double nomorTelp,
-                noTelpPenanggungJawab;
+    static double nomorTelp,
+                  noTelpPenanggungJawab;
 
-static String nama,
-              jenisKelamin,
-              tempatLahir,
-              tanggalLahir,
-              alamat,
-              agama,
-              pekerjaan,
-              namaPenanggungJawab,
-              alamatPenanggungJawab,
-              hubungan,
-              poli;
+    static String nama,
+                  jenisKelamin,
+                  tempatLahir,
+                  tanggalLahir,
+                  alamat,
+                  agama,
+                  pekerjaan,
+                  namaPenanggungJawab,
+                  alamatPenanggungJawab,
+                  hubungan,
+                  poli;
 
+    // program awal dan memanggil menu utama
     public static void main(String[] args) {
         System.out.println(" ");
         System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSUD ANUGRAH PAINGAN--==");
@@ -58,6 +59,7 @@ static String nama,
             System.out.print("PILIH : ");
             menuUtama = input.nextInt();
             
+            // switch case untuk menu utama yang berisi menu 1,2,3 dan keluar
             switch (menuUtama){
                 case 1 :
                     menu_1();
@@ -104,9 +106,9 @@ static String nama,
     static void menu_1(){
         System.out.println("ANDA MEMILIH MENDAFTAR SEBAGAI PASIEN BARU");
         System.out.println("SILAHKAN MASUKAN BIODATA PASIEN");
-        identitas();
-        biodataPenanggungJawab();
-        menuPoli();
+        identitas(); // memanggil subprogram identitas
+        biodataPenanggungJawab(); // memanggil subprogram biodata penanggung jawab
+        menuPoli(); // memanggil subprogram menu tujuan poli dan lainnya
     }
     
    // subprogram untuk prosedur identitas atau biodata pasien
@@ -162,7 +164,7 @@ static String nama,
             System.out.println("3. POLI SYARAF");
             System.out.println("4. POLI BEDAH UMUM");
             System.out.print("PILIH : ");
-            menu = input.nextInt();
+            menu = input.nextInt(); // input untuk menu pilihan tujuan poli
             System.out.println();
             
              switch (menu){
@@ -174,6 +176,7 @@ static String nama,
                      System.out.print("MASUKAN : ");
                      jadwal = input.next().toLowerCase();
                    
+                     // switch menu untuk jadwal dokter
                 switch (jadwal){
                     case "senin" :
                         System.out.println("");
@@ -205,11 +208,13 @@ static String nama,
                         break;
                 }
                 
+                // menu keluhan penyakit pasien
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
+                     //menu untuk pilihan BPJS
                      do{
                          System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
@@ -268,7 +273,7 @@ static String nama,
                              }while(menuBPJS != 1 && menuBPJS != 2);
                          }
                      }while(pilihanBPJS < 1 || pilihanBPJS > 2);
-                break;
+                break; // break case poli anak
                 
                 // menu tujuan poli umum
                 case 2 :
@@ -278,7 +283,7 @@ static String nama,
                      System.out.print("MASUKAN : ");
                      jadwal = input.next().toLowerCase();
                      
-                     
+                     // switch case menu jadwal dokter
                       switch (jadwal){
                     case "senin" :
                         System.out.println("");
@@ -309,8 +314,7 @@ static String nama,
                         System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Agus Sapiderman");
                         break;
                 }
-                
-                
+                // menu keluhan
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
@@ -374,7 +378,7 @@ static String nama,
                              }while(menuBPJS != 1 && menuBPJS != 2 );
                          }
                      }while(pilihanBPJS < 1 || pilihanBPJS > 2);
-                break;
+                break; // break menu poli umum
                 
                 // menu tujuan poli syaraf
                 case 3 :
@@ -384,7 +388,7 @@ static String nama,
                      System.out.print("MASUKAN : ");
                      jadwal = input.next().toLowerCase();
                      
-                     
+                     // menu jadwal dokter
                        switch (jadwal){
                     case "senin" :
                         System.out.println("");
@@ -416,13 +420,13 @@ static String nama,
                         break;
                 }
                 
-                
+                // menu keluhan
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
-                     
+                     //menu pilihan BPJS
                      do{
                          System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
@@ -481,7 +485,7 @@ static String nama,
                              }while(menuBPJS != 1 && menuBPJS != 2);
                          }
                      }while(pilihanBPJS < 1 || pilihanBPJS > 2);
-                break;
+                break; // break poli syaraf
                 
                 // menu tujuan poli bedah
                 case 4 :
@@ -491,7 +495,7 @@ static String nama,
                      System.out.print("MASUKAN : ");
                      jadwal = input.next().toLowerCase();
                      
-                     
+                     // menu jadwal dokter
                       switch (jadwal){
                     case "senin" :
                         System.out.println("");
@@ -522,14 +526,14 @@ static String nama,
                         System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Basuki Narendra, Sp.B");
                         break;
                 }
-                
-
-                
+                      
+                // menu keluhan
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
                      keluhan = input.nextLine();
                      keluhan += input.nextLine();
                      
+                     // menu BPJS
                      do{
                          System.out.println();
                          System.out.println("APAKAH ANDA INGIN MENGGUNAKAN BPJS ? ");
@@ -605,9 +609,9 @@ static String nama,
         System.out.print("TOLONG MASUKAN NOMOR REKA PASIEN : ");
         // MEMBUAT SCANNER ARRAY UNTUK MEMASUKAN NOMOR REKA
         
-        biodataPenanggungJawab();
+        biodataPenanggungJawab(); // memanggil biodata
         
-        menuPoli();
+        menuPoli(); // memanggil menu poli
     }
     static void isiArray(){// Untuk mengisi nilai 5 reka medis yang sudah ada dari index 0 s/d 4
         nomorRekaMedis[0] = 12334;
