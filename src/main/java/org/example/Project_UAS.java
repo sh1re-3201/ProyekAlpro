@@ -147,13 +147,9 @@ static String nama,
     // subprogram untuk menu tujuan poli, pemilihan dokter, pemilihan jadwal, mengisi keluhan dan menu BPJS
     static void menuPoli(){
         int menu,
-            pilihanBPJS,
-            nomorBPJS;
+            pilihanBPJS;
         
-        int dokterAnak,
-            dokterUmum,
-            dokterSyaraf,
-            dokterBedah;    
+        double nomorBPJS;  
         
         String jadwal,
                keluhan;
@@ -173,24 +169,41 @@ static String nama,
                  // menu tujuan poli anak
                  case 1 :
                      System.out.println("SILAHKAN MASUKAN JADWAL KONSULTASI"); 
-                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari, tanggal bulan tahun ");
-                     System.out.println("CONTOH : Rabu, 13 Desember 2023");
+                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari");
+                     System.out.println("CONTOH : jumat/JUMAT/Jumat");
                      System.out.print("MASUKAN : ");
-                     jadwal = input.nextLine();
-                     jadwal += input.nextLine();
-                
-                do{
-                    System.out.println();
-                    System.out.println("SILAHKAN PILIH DOKTER : ");
-                    System.out.println("1. Alberth Dody, Sp.A");
-                    System.out.println("2. Nurul Mahalini, Sp.A");
-                    System.out.println("3. Sarah Ozawa, Sp.A");
-                    System.out.print("PILIH : ");
-                    dokterAnak = input.nextInt();
-                    if (dokterAnak < 1 ||dokterAnak > 3){
-                         System.out.println("MAAF INPUT YANG ANDA MASUKAN TIDAK VALID COBA MASUKAN KEMBALI INPUT YANG BENAR");
-                    }
-                }while(dokterAnak < 1 || dokterAnak > 3);
+                     jadwal = input.next().toLowerCase();
+                   
+                switch (jadwal){
+                    case "senin" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Alberth Dody,  Sp.A");
+                        break;
+                    case "selasa" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Alberth Dody, Sp.A");
+                        break;
+                    case "rabu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Nurul Mahalini, Sp.A");
+                        break;
+                    case "kamis" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Nurul Mahalini, Sp.A");
+                        break;
+                    case "jumat" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Alberth Dody, Sp.A");
+                        break;
+                    case "sabtu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Sarah Ozawa, Sp.A");
+                        break;
+                    case "minggu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Sarah Ozawa, Sp.A");
+                        break;
+                }
                 
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
@@ -206,7 +219,7 @@ static String nama,
                          
                          if (pilihanBPJS == 1 ){
                              System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextInt();
+                             nomorBPJS = input.nextDouble();
                              
                              int menuBPJS;
                              do{
@@ -260,25 +273,42 @@ static String nama,
                 // menu tujuan poli umum
                 case 2 :
                      System.out.println("SILAHKAN MASUKAN JADWAL KONSULTASI");
-                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari, tanggal bulan tahun ");
-                     System.out.println("CONTOH Rabu, 13 Desember 2023");
+                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari ");
+                     System.out.println("CONTOH : jumat/JUMAT/Jumat");
                      System.out.print("MASUKAN : ");
-                     jadwal = input.nextLine();
-                     jadwal += input.nextLine();
-                
-                do{
-                    System.out.println();
-                    System.out.println("SILAHKAN PILIH DOKTER : ");
-                    System.out.println("1. dr. Laurel Varhana");
-                    System.out.println("2. dr. Agus Sapiderman");
-                    System.out.println("3. dr. Gatot Subrojo");
-                    System.out.println("4. dr. Asep Anggoro");
-                    System.out.print("PILIH : ");
-                    dokterUmum = input.nextInt();
-                    if (dokterUmum < 1 ||dokterUmum > 4){
-                         System.out.println("MAAF INPUT YANG ANDA MASUKAN TIDAK VALID COBA MASUKAN KEMBALI INPUT YANG BENAR");
-                    }
-                }while(dokterUmum < 1 || dokterUmum > 4);
+                     jadwal = input.next().toLowerCase();
+                     
+                     
+                      switch (jadwal){
+                    case "senin" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Laurel Varhana");
+                        break;
+                    case "selasa" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Agus Sapiderman");
+                        break;
+                    case "rabu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER dr. Gatot Subrojo");
+                        break;
+                    case "kamis" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Laurel Varhana");
+                        break;
+                    case "jumat" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER dr. Asep Anggoro");
+                        break;
+                    case "sabtu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER dr. Asep Anggoro");
+                        break;
+                    case "minggu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Agus Sapiderman");
+                        break;
+                }
                 
                 
                      System.out.println();
@@ -295,7 +325,7 @@ static String nama,
                          
                          if (pilihanBPJS == 1 ){
                              System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextInt();
+                             nomorBPJS = input.nextDouble();
                               
                              int menuBPJS;
                              do{
@@ -349,23 +379,42 @@ static String nama,
                 // menu tujuan poli syaraf
                 case 3 :
                      System.out.println("SILAHKAN MASUKAN JADWAL KONSULTASI");
-                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari, tanggal bulan tahun ");
-                     System.out.println("CONTOH Rabu, 13 Desember 2023");
+                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari");
+                     System.out.println("CONTOH : jumat/JUMAT/Jumat");
                      System.out.print("MASUKAN : ");
-                     jadwal = input.nextLine();
-                     jadwal += input.nextLine();
-                
-                do{
-                    System.out.println("SILAHKAN PILIH DOKTER : ");
-                    System.out.println("1. Nigarius Alexandro Sp.S");
-                    System.out.println("2. FreyanaShifa Jayawardana Sp.S");
-                    System.out.println("3. Tukimin Yoga Yowesben Sp.S");
-                    System.out.print("PILIH : ");
-                    dokterSyaraf = input.nextInt();
-                    if (dokterSyaraf < 1 ||dokterSyaraf > 3){
-                         System.out.println("MAAF INPUT YANG ANDA MASUKAN TIDAK VALID COBA MASUKAN KEMBALI INPUT YANG BENAR");
-                    }
-                }while(dokterSyaraf < 1 || dokterSyaraf > 3);
+                     jadwal = input.next().toLowerCase();
+                     
+                     
+                       switch (jadwal){
+                    case "senin" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Freyanashifa Jayawardana, Sp.S");
+                        break;
+                    case "selasa" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Nigarius Alexandro, Sp.S");
+                        break;
+                    case "rabu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Tukimin Yoga Yowesben, Sp.S");
+                        break;
+                    case "kamis" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Nigarius Alexandro, Sp.S");
+                        break;
+                    case "jumat" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Freyanashifa Jayawardana, Sp.S");
+                        break;
+                    case "sabtu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Freyanashifa Jayawardana, Sp.S");
+                        break;
+                    case "minggu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Tukimin Yoga Yowesben, Sp.S");
+                        break;
+                }
                 
                 
                      System.out.println();
@@ -383,7 +432,7 @@ static String nama,
                          
                          if (pilihanBPJS == 1 ){
                              System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextInt();
+                             nomorBPJS = input.nextDouble();
                               
                              int menuBPJS;
                              do{
@@ -437,25 +486,44 @@ static String nama,
                 // menu tujuan poli bedah
                 case 4 :
                      System.out.println("SILAHKAN MASUKAN JADWAL KONSULTASI");
-                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari, tanggal bulan tahun ");
-                     System.out.println("CONTOH Rabu, 13 Desember 2023");
+                     System.out.println("MASUKAN HARI DAN JAM DENGAN FORMAT : hari");
+                     System.out.println("CONTOH : jumat/JUMAT/Jumat");
                      System.out.print("MASUKAN : ");
-                     jadwal = input.nextLine();
-                     jadwal += input.nextLine();
+                     jadwal = input.next().toLowerCase();
+                     
+                     
+                      switch (jadwal){
+                    case "senin" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Azizi Shafa Asadel, Sp.B");
+                        break;
+                    case "selasa" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Azizi Shafa Asadel, Sp.B");
+                        break;
+                    case "rabu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Azizi Shafa Asadel, Sp.B");
+                        break;
+                    case "kamis" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Reza Agra Oktovian, Sp.B");
+                        break;
+                    case "jumat" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Reva Fidela Adel, Sp.B");
+                        break;
+                    case "sabtu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Reva Fidela Adel, Sp.B");
+                        break;
+                    case "minggu" :
+                        System.out.println("");
+                        System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH DOKTER Basuki Narendra, Sp.B");
+                        break;
+                }
                 
-                do{
-                    System.out.println("SILAHKAN PILIH DOKTER : ");
-                    System.out.println("1. Azizi Shafa Asadel Sp.B");
-                    System.out.println("2. Basuki Narendra Sp.B");
-                    System.out.println("3. Reva Fidela Adel Sp.B");
-                    System.out.println("4. Reza Agra Oktovian Sp.B");
-                    System.out.print("PILIH : ");
-                    dokterBedah = input.nextInt();
-                    
-                    if (dokterBedah < 1 ||dokterBedah > 4){
-                         System.out.println("MAAF INPUT YANG ANDA MASUKAN TIDAK VALID COBA MASUKAN KEMBALI INPUT YANG BENAR");
-                    }
-                }while(dokterBedah < 1 || dokterBedah > 4);
+
                 
                      System.out.println();
                      System.out.print("SILAHKAN ISI KELUHKAN PENYAKIT PASIEN : ");
@@ -471,7 +539,7 @@ static String nama,
                          
                          if (pilihanBPJS == 1 ){
                              System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextInt();
+                             nomorBPJS = input.nextDouble();
                               
                              int menuBPJS;
                              do{
