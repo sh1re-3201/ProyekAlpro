@@ -11,6 +11,7 @@ PULL SAAT PERTAMA KALI MASUK
  */
 
 import java.util.Scanner;
+import java.util.random.RandomGenerator;
 /**
  *
  * @author Krisna Wiranata, Anugrah Frumensius, Alberth Dody.
@@ -18,7 +19,8 @@ import java.util.Scanner;
 public class Project_UAS {
     static Scanner input = new Scanner(System.in);
 
-    static short[] nomorRekaMedis = new short[50];// Array untuk nomor reka medis berkapasitas 50 entries
+    static short[] nomorRekaMedis = new short[50];// Array untuk nomor reka medis dengan panjang 50
+    static String[] namaPasien = new String[50];// Array untuk nama dari pasien dengan panjang 50
 
     static int menuUtama,
              umur,
@@ -39,10 +41,19 @@ static String nama,
               hubungan,
               poli;
 
+
     public static void main(String[] args) {
+        isiArray();
         System.out.println(" ");
         System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSUD ANUGRAH PAINGAN--==");
-       menuUtama();
+        // TODO PERCOBAAN ARRAY
+        System.out.println(nomorRekaMedis.length);
+        System.out.println(namaPasien.length);
+        System.out.println(nomorRekaMedis[3]);
+        System.out.println(namaPasien[3]);
+        menuUtama();
+
+
     }
     
     // subprogram untuk menu utama
@@ -111,7 +122,7 @@ static String nama,
     
    // subprogram untuk prosedur identitas atau biodata pasien
     static void identitas(){
-         System.out.print("Nama Pasien           : ");
+        System.out.print("Nama Pasien           : ");
         nama = input.nextLine();
         nama += input.nextLine();
         System.out.print("Umur                  : ");
@@ -547,6 +558,14 @@ static String nama,
         nomorRekaMedis[2] = 15334;
         nomorRekaMedis[3] = 12313;
         nomorRekaMedis[4] = 26713;
+
+        namaPasien[1] = "Anthony Daniel Agra";
+        namaPasien[2] = "Azizi Shafaa Asade";
+        namaPasien[3] = "Alogoi Niga Ya";
+        namaPasien[4] = "Krisna Zee Wiranata";
+        namaPasien[5] = "Asep Bon Jovi";
+
+
 
     }
 }
