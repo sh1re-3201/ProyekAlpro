@@ -29,9 +29,6 @@ public class Project_UAS {
     static String[] tanggalLahirPasien = new String[50];
     static String[] nomorTelponPasien = new String[50];
 
-    static int countIndex = 5;
-    static int menuUtama;
-
     static int pilIndexArray;// PENTING BUAT PEMILIHAN ARRAY SEMUA KENA MANTAB JOSSSSSSSS
     static int noRekPasRandom=0;
     static int menuKembali;
@@ -52,18 +49,19 @@ public class Project_UAS {
         System.out.println(namaPasien[4]);
         menuUtama();
     }
-    // Method untuk membuat nomor reka medis baru
+    // Method untuk membuat nomor reka medis baru seara random dibawah 32767
     static void nomorRekaMedisRandom() {
+        int countIndex = 5;
         Random acak = new Random();
 
         for (int j = 1; j < 10; j++) {
             do {
-                for (int i = 0; i < 5; i++) {
-                    if (noRekPasRandom <= 10000){
+                for (int i = 1; i < 5; i++) {
+                    if (noRekPasRandom <= 10000|| noRekPasRandom > 0){
                         noRekPasRandom = acak.nextInt(32767);
                     }
                 }
-            }while (noRekPasRandom <= 10000);
+            }while (noRekPasRandom <= 10000|| noRekPasRandom > 0);
         }
         nomorRekaMedis[countIndex] += noRekPasRandom;
         System.out.println(noRekPasRandom);
@@ -72,13 +70,14 @@ public class Project_UAS {
 
     // subprogram untuk menu utama
     static void menuUtama(){
+        int menuUtama = 0;
         do {
             System.out.println(" ");
             System.out.println("MENU PENDAFTARAN RSU ETERNA PAINGAN");
             System.out.println("SILAHKAN MEMILIH MENU YANG TERSEDIA DENGAN MEMASUKAN ANGKA SESUAI DENGAN MENU YANG INGIN ANDA PILIH : ");
             System.out.println("1. MENDAFTAR PERTAMA KALI SEBAGAI PASIEN BARU");
             System.out.println("2. MENDAFTAR SEBAGAI PASIEN YANG SUDAH PERNAH MENDAFTAR SEBELUMNYA");
-            System.out.println("3. INFO [SILAHKAN MASUK KE MENU INI JIKA ANDA BINGUNG DENGAN MENU YANG DISEDIAKAN");
+            System.out.println("3. INFO [SILAHKAN MASUK KE MENU INI JIKA ANDA BINGUNG DENGAN MENU YANG DISEDIAKAN]");
             System.out.println("4. KELUAR");
             System.out.print("PILIH : ");
             menuUtama = input.nextInt();
@@ -315,7 +314,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -398,6 +398,10 @@ public class Project_UAS {
                                  System.out.println();
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
+
+                                                                  System.out.println(noRekPasRandom);
+
+
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -423,7 +427,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -509,7 +514,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
@@ -536,7 +542,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
@@ -621,7 +628,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH KAMI TELAH MENYIMPAN NOMOR BPJS ANDA");
                                  System.out.print("NOMOR REKA PASIEN ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
@@ -648,7 +656,8 @@ public class Project_UAS {
                                  System.out.println("TERIMA KASIH PENDAFTARAN ANDA TELAH BERHASIL");
                                  System.out.print("NOMOR REKA MEDIS ANDA ADALAH : ");//MEMANGGIL NOMOR REKA YANG SUDAH DI CETAK RANDOM DARI ARRAY
 
-                                 nomorRekaMedisRandom();
+                                                                  System.out.println(noRekPasRandom);
+
 
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
