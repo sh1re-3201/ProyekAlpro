@@ -19,6 +19,8 @@ import java.util.Random;
 public class Project_UAS {
     static Scanner input = new Scanner(System.in);
 
+
+    // Attribute
     static int[] nomorRekaMedis = new int[50];// Array untuk nomor reka medis dengan panjang 50
     static String[] namaPasien = new String[50];// Array untuk nama pasien lama dengan panjang 50
     static String[] jenisKelaminPasien = new String[50];// Array untuk jenis kelamin dengan panjang 50
@@ -38,8 +40,7 @@ public class Project_UAS {
     static String
               namaPenanggungJawab,
               alamatPenanggungJawab,
-              hubungan,
-              poli;
+              hubungan;
 
     public static void main(String[] args) {
         isiArray();
@@ -197,10 +198,11 @@ public class Project_UAS {
     }
     // subprogram untuk menu tujuan poli, pemilihan dokter, pemilihan jadwal, mengisi keluhan dan menu BPJS
     static void menuPoli(){
+        Scanner jadianYuk = new Scanner(System.in);
         int menu,
             pilihanBPJS;
 
-        double nomorBPJS;
+        String nomorBPJS;
 
         int dokterAnak,
             dokterUmum,
@@ -276,8 +278,17 @@ public class Project_UAS {
                          pilihanBPJS = input.nextInt();
 
                          if (pilihanBPJS == 1 ){
-                             System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextDouble();
+                             boolean inputBpjs = false;
+                             while (!inputBpjs){
+                                 System.out.print("MASUKKAN NOMOR BPJS ANDA : ");
+                                 String nomorBPJSInput = jadianYuk.next();
+                                 if (nomorBPJSInput.matches(".*[a-zA-Z]+.*")){
+                                     System.out.println("Nomor BPJS tidak boleh mengandung huruf. Silakan coba lagi.");
+                                 } else {
+                                     nomorBPJS = nomorBPJSInput.replaceFirst("^0+", "");
+                                     inputBpjs = true;
+                                 }
+                             }
                              
                              int menuBPJS;
                              do{
@@ -387,8 +398,17 @@ nomorRekaMedisRandom();
                          pilihanBPJS = input.nextInt();
 
                          if (pilihanBPJS == 1 ){
-                             System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextDouble();
+                             boolean inputBpjs = false;
+                             while (!inputBpjs){
+                                 System.out.print("MASUKKAN NOMOR BPJS ANDA : ");
+                                 String nomorBPJSInput = jadianYuk.next();
+                                 if (nomorBPJSInput.matches(".*[a-zA-Z]+.*")){
+                                     System.out.println("Nomor BPJS tidak boleh mengandung huruf. Silakan coba lagi.");
+                                 } else {
+                                     nomorBPJS = nomorBPJSInput.replaceFirst("^0+", "");
+                                     inputBpjs = true;
+                                 }
+                             }
                               
                              int menuBPJS;
                              do{
@@ -426,6 +446,7 @@ nomorRekaMedisRandom();
 nomorRekaMedisRandom();
 
                                  System.out.println("PENDAFTARAN TELAH SELESAI");
+
                                  System.out.println("1. KEMBALI KE MENU UTAMA");
                                  System.out.println("2. KELUAR ");
                                  System.out.print("PILIH : ");
@@ -500,8 +521,17 @@ nomorRekaMedisRandom();
                          pilihanBPJS = input.nextInt();
 
                          if (pilihanBPJS == 1 ){
-                             System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextDouble();
+                             boolean inputBpjs = false;
+                             while (!inputBpjs){
+                                 System.out.print("MASUKKAN NOMOR BPJS ANDA : ");
+                                 String nomorBPJSInput = jadianYuk.next();
+                                 if (nomorBPJSInput.matches(".*[a-zA-Z]+.*")){
+                                     System.out.println("Nomor BPJS tidak boleh mengandung huruf. Silakan coba lagi.");
+                                 } else {
+                                     nomorBPJS = nomorBPJSInput.replaceFirst("^0+", "");
+                                     inputBpjs = true;
+                                 }
+                             }
                               
                              int menuBPJS;
                              do{
@@ -612,8 +642,17 @@ nomorRekaMedisRandom();
                          pilihanBPJS = input.nextInt();
 
                          if (pilihanBPJS == 1 ){
-                             System.out.print("MASUKAN NOMOR BPJS : ");
-                             nomorBPJS = input.nextDouble();
+                             boolean inputBpjs = false;
+                             while (!inputBpjs){
+                                 System.out.print("MASUKKAN NOMOR BPJS ANDA : ");
+                                 String nomorBPJSInput = jadianYuk.next();
+                                 if (nomorBPJSInput.matches(".*[a-zA-Z]+.*")){
+                                     System.out.println("Nomor BPJS tidak boleh mengandung huruf. Silakan coba lagi.");
+                                 } else {
+                                     nomorBPJS = nomorBPJSInput.replaceFirst("^0+", "");
+                                     inputBpjs = true;
+                                 }
+                             }
                               
                              int menuBPJS;
                              do{
@@ -692,7 +731,7 @@ nomorRekaMedisRandom();
         // Mengecek kalau benar atau salah nomor reka medis yang diisi
         while (true) {
             System.out.print("TOLONG MASUKAN NOMOR REKA PASIEN : ");
-            short rekaMed = aria.nextShort();
+            int rekaMed = aria.nextInt();
 
             // Reset the nomorRekaTemu flag and index for each iteration
             nomorRekaTemu = false;
@@ -708,7 +747,7 @@ nomorRekaMedisRandom();
             }
 
             if (nomorRekaTemu) {
-                System.out.println("SELAMAT DATANG " + namaPasien[pilIndexArray] + "!");
+                resiDaftar();
                 break;
             } else {
                 System.out.println("Nomor Reka Medis tidak ditemukan.");
@@ -722,6 +761,22 @@ nomorRekaMedisRandom();
         biodataPenanggungJawab(); // memanggil biodata
         
         menuPoli(); // memanggil menu poli
+    }
+    static void resiDaftar(){
+        System.out.println("==--SELAMAT DATANG DI RSU ETERNA PAINGAN--==");
+        System.out.println();
+        System.out.println();
+        System.out.println("Nama            : " + namaPasien[pilIndexArray]);
+        System.out.println("Jenis Kelamin   : " + jenisKelaminPasien[pilIndexArray]);
+        System.out.println("Tanggal Lahir   : " + tanggalLahirPasien[pilIndexArray]);
+        System.out.println("Tempat Lahir    : " + tempatLahirPasien[pilIndexArray]);
+        System.out.println("Agama           : " + agamaPasien[pilIndexArray]);
+        System.out.println("Pekerjaan       : " + pekerjaanPasien[pilIndexArray]);
+        System.out.println("Alamat          : " + alamatPasien[pilIndexArray]);
+        System.out.println();
+        System.out.println("===============================================================");
+        System.out.println();
+
     }
     static void isiArray(){// Untuk mengisi nilai 5 reka medis yang sudah ada dari index 0 s/d 4
         // Nomor reka medis set
