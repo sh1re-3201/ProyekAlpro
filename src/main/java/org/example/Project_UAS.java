@@ -68,7 +68,7 @@ public class Project_UAS {
 
     // subprogram untuk menu utama
     static void menuUtama(){
-        int menuUtama = 0;
+        int menuUtama;
         do {
             System.out.println(" ");
             System.out.println("MENU PENDAFTARAN RSU ETERNA PAINGAN");
@@ -141,6 +141,9 @@ public class Project_UAS {
        namaPasien[currentIndex] = input.nextLine();
        namaPasien[currentIndex] += input.nextLine();
 
+       System.out.print("Jenis Kelamin         :");
+       jenisKelaminPasien[currentIndex] = input.nextLine();
+
        System.out.print("Tempat lahir          : ");
        tempatLahirPasien[currentIndex] = input.nextLine();
        System.out.print("Tanggal lahir         : ");
@@ -204,10 +207,6 @@ public class Project_UAS {
 
         String nomorBPJS;
 
-        int dokterAnak,
-            dokterUmum,
-            dokterSyaraf,
-            dokterBedah;
 
         String jadwal,
                keluhan;
@@ -354,7 +353,7 @@ nomorRekaMedisRandom();
                      jadwal = input.next().toLowerCase();
                      
                      // switch case menu jadwal dokter
-                      switch (jadwal){
+                    switch (jadwal){
                     case "senin" :
                         System.out.println(" ");
                         System.out.println("DOKTER YANG AKAN MENANGANI ANDA ADALAH dr. Laurel Varhana");
