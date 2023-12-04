@@ -45,8 +45,6 @@ public class Project_UAS {
         isiArray();
         System.out.println(" ");
         System.out.println("==--SELAMAT DATANG DI MENU PENDAFTARAN RSU ETERNA PAINGAN--==");
-        System.out.println(nomorRekaMedis.length);
-        System.out.println(namaPasien[4]);
         menuUtama();
     }
     // Method untuk membuat nomor reka medis baru seara random dibawah 32767
@@ -117,6 +115,7 @@ public class Project_UAS {
                     System.out.println("______________________________");
                     System.out.println("TERIMA KASIH");
                     System.out.println("PROGRAM SELESAI");
+                     System.exit(0);
                     break;
                 default :
                     System.out.println("MAAF INPUT YANG ANDA MASUKAN TIDAK VALID COBA MASUKAN KEMBALI INPUT YANG BENAR");
