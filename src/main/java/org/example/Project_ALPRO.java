@@ -5,9 +5,7 @@
 package org.example;
 
 /*
-INGAT UNTUK SELALU PUSH SEBELUM KELUAR
-DAN
-PULL SAAT PERTAMA KALI MASUK
+INGAT UNTUK SELALU PUSH dan PULL
  */
 
 import java.util.Scanner;
